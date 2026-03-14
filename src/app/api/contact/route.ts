@@ -4,7 +4,7 @@ export const runtime = 'edge';
 
 export async function POST(req: Request) {
     try {
-        const { name, email, company, message } = await req.json();
+        const { name, email, subject, company, message } = await req.json();
 
         // Configuración para usar Resend o SMTP mediante APIs HTTP (compatible con Cloudflare Edge)
         // Nota para Cori Inc: Debes registrarte en un servicio como Resend (resend.com), verificar coriinc.com y 
@@ -23,7 +23,7 @@ export async function POST(req: Request) {
             from: '"Cori Inc. Website" <contacto@coriinc.com>', // Quien envia (debe estar verificado)
             to: ['direccion@coriinc.com', 'leandro@coriinc.com'], // A quien llega el contacto
             reply_to: email, // Permite responder directamente al cliente
-            subject: `Nuevo Proyecto/Contacto de: ${name} ${company ? `(${company})` : ''}`,
+            subject: `${subject || 'Nuevo Proyecto/Contacto'} de: ${name} ${company ? `(${company})` : ''}`,
             html: `
         <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
           <h2 style="color: #D4AF37; border-bottom: 2px solid #eee; padding-bottom: 10px;">Nuevo Contacto Web - Cori Inc.</h2>

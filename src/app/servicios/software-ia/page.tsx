@@ -85,7 +85,7 @@ export default function SoftwareIAService() {
                     </div>
                     <div className={styles.imagePlaceholder}>
                         <Image
-                            src="/images/imagenes cori inc/tableta IA.png"
+                            src="/images/imagenes-cori-inc/tableta-IA.png"
                             alt="Software and IA Synergy"
                             fill
                             style={{ objectFit: 'cover' }}

@@ -58,7 +58,7 @@ export default function SeguridadService() {
                     </div>
                     <div className={styles.imagePlaceholder}>
                         <Image
-                            src="/images/imagenes cori inc/camara negra.png"
+                            src="/images/imagenes-cori-inc/camara-negra.png"
                             alt="Sistema de Seguridad Integrado"
                             fill
                             style={{ objectFit: 'cover' }}

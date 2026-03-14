@@ -105,7 +105,7 @@ export default function Home() {
             <section className={styles.heroSection}>
                 <div className={styles.heroImageWrapper}>
                     <Image
-                        src="/images/imagenes cori inc/modelo hero.png"
+                        src="/images/imagenes-cori-inc/modelo-hero.png"
                         alt="Cori Inc Artificial Intelligence Model"
                         fill
                         quality={100}
@@ -136,7 +136,7 @@ export default function Home() {
                     <div className={`${styles.gridItem} ${styles.itemIA}`}>
                         <Link href="/servicios/software-ia" className={styles.gridLink}>
                             <div className={styles.gridImageWrapper}>
-                                <Image src="/images/imagenes cori inc/tablet y manos.png" alt="Sistemas de Información & IA" fill className={styles.gridImage} />
+                                <Image src="/images/imagenes-cori-inc/tablet-y-manos.png" alt="Sistemas de Información & IA" fill className={styles.gridImage} />
                                 <div className={styles.gridOverlay} />
                             </div>
                             <div className={styles.gridTextContainer}>
@@ -149,7 +149,7 @@ export default function Home() {
                     <div className={`${styles.gridItem} ${styles.itemSeguridad}`}>
                         <Link href="/servicios/seguridad" className={styles.gridLink}>
                             <div className={styles.gridImageWrapper}>
-                                <Image src="/images/imagenes cori inc/camara negra.png" alt="Sistemas de Seguridad" fill className={styles.gridImage} />
+                                <Image src="/images/imagenes-cori-inc/camara-negra.png" alt="Sistemas de Seguridad" fill className={styles.gridImage} />
                                 <div className={styles.gridOverlay} />
                             </div>
                             <div className={styles.gridTextContainer}>
@@ -162,7 +162,7 @@ export default function Home() {
                     <div className={`${styles.gridItem} ${styles.itemAuto}`}>
                         <Link href="/servicios/automatizacion" className={styles.gridLink}>
                             <div className={styles.gridImageWrapper}>
-                                <Image src="/images/imagenes cori inc/soldador color.png" alt="Sistemas de Automatización" fill className={styles.gridImage} />
+                                <Image src="/images/imagenes-cori-inc/soldador-color.png" alt="Sistemas de Automatización" fill className={styles.gridImage} />
                                 <div className={styles.gridOverlay} />
                             </div>
                             <div className={styles.gridTextContainer}>
@@ -175,7 +175,7 @@ export default function Home() {
                     <div className={`${styles.gridItem} ${styles.itemDomotica}`}>
                         <Link href="/servicios/domotica" className={styles.gridLink}>
                             <div className={styles.gridImageWrapper}>
-                                <Image src="/images/imagenes cori inc/domotica mano y panel.png" alt="Domotica IoT" fill className={styles.gridImage} />
+                                <Image src="/images/imagenes-cori-inc/domotica-mano-y-panel.png" alt="Domotica IoT" fill className={styles.gridImage} />
                                 <div className={styles.gridOverlay} />
                             </div>
                             <div className={styles.gridTextContainer}>
@@ -188,7 +188,7 @@ export default function Home() {
                     <div className={`${styles.gridItem} ${styles.itemConsultoria}`}>
                         <Link href="/servicios/consultoria" className={styles.gridLink}>
                             <div className={styles.gridImageWrapper}>
-                                <Image src="/images/imagenes cori inc/modelo mujer.png" alt="Consultoría Tecnológica" fill className={styles.gridImage} />
+                                <Image src="/images/imagenes-cori-inc/modelo-mujer.png" alt="Consultoría Tecnológica" fill className={styles.gridImage} />
                                 <div className={styles.gridOverlay} />
                             </div>
                             <div className={styles.gridTextContainer}>

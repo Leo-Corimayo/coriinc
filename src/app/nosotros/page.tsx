@@ -132,7 +132,7 @@ export default function NosotrosPage() {
                     >
                         <div className={styles.founderImageWrapper}>
                             <Image
-                                src="/images/imagenes cori inc/sobre nos.png"
+                                src="/images/imagenes-cori-inc/sobre-nos.png"
                                 alt="Fundador de Cori Inc."
                                 fill
                                 quality={100}
