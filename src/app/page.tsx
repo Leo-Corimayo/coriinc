@@ -1,82 +1,228 @@
+"use client";
+
 import styles from "./page.module.css";
 import Link from "next/link";
-import { ArrowRight, Cpu, Code2, Cpu as Microchip, Lightbulb, Home as SmartHome } from "lucide-react";
+import Image from "next/image";
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+/* ——— Todas las frases organizadas por grupo ——— */
+const phrasesIdentidad = [
+    "Desde La Rioja para el mundo.",
+    "Cori Inc. – La Estética de la Precisión.",
+    "Ingeniería que nace en La Rioja.",
+    "Tecnología invisible, diseño impecable.",
+    "Redefiniendo los límites de la integración tecnológica.",
+    "No solo informática; Alta Ingeniería.",
+];
+
+const phrasesHero = [
+    "Entendemos el código. Dominamos la máquina.",
+    "Donde la placa de circuito se encuentra con el algoritmo de IA.",
+    "Unimos el hardware industrial robusto con el software inteligente moderno.",
+    "Dominio total: del circuito impreso a la Inteligencia Artificial.",
+    "Ingeniería que domina todo el espectro tecnológico.",
+];
+
+const phrasesImpacto = [
+    "La costura digital es nuestra precisión electrónica.",
+    "Lujo técnico para procesos productivos.",
+    "Elevamos su entorno operativo con diseño de autor.",
+    "Impulsando el futuro productivo de la región.",
+    "Tecnología que se siente, se ve y funciona.",
+    "Garantizando el salto tecnológico de su empresa.",
+    "Cori Inc. Precision Engineering.",
+];
+
+/* ——— Componente de frase rotativa ——— */
+function RotatingPhrase({ phrases }: { phrases: string[] }) {
+    const [index, setIndex] = useState(0);
+
+    const advance = useCallback(() => {
+        setIndex((prev) => (prev + 1) % phrases.length);
+    }, [phrases.length]);
+
+    useEffect(() => {
+        const timer = setInterval(advance, 7000);
+        return () => clearInterval(timer);
+    }, [advance]);
+
+    return (
+        <section className={styles.phraseSection}>
+            <div className={styles.phraseWrapper}>
+                <AnimatePresence mode="wait">
+                    <motion.p
+                        key={index}
+                        className={styles.phrase}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.8, ease: "easeInOut" }}
+                    >
+                        &ldquo;{phrases[index]}&rdquo;
+                    </motion.p>
+                </AnimatePresence>
+            </div>
+        </section>
+    );
+}
+
+/* ——— Subtítulo rotativo para el Hero ——— */
+function HeroSubtitle({ phrases }: { phrases: string[] }) {
+    const [index, setIndex] = useState(0);
+
+    const advance = useCallback(() => {
+        setIndex((prev) => (prev + 1) % phrases.length);
+    }, [phrases.length]);
+
+    useEffect(() => {
+        const timer = setInterval(advance, 7000);
+        return () => clearInterval(timer);
+    }, [advance]);
+
+    return (
+        <div className={styles.heroSubtitleWrapper}>
+            <AnimatePresence mode="wait">
+                <motion.p
+                    key={index}
+                    className={styles.heroSubtitle}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                >
+                    &ldquo;{phrases[index]}&rdquo;
+                </motion.p>
+            </AnimatePresence>
+        </div>
+    );
+}
 
 export default function Home() {
     return (
         <div className={styles.container}>
-            {/* Hero Section */}
-            <section className={styles.hero}>
-                <div className={styles.heroContent}>
-                    <h1 className={styles.title}>
-                        <span className="text-silver-gradient">Impulsando el </span>
-                        <span className="text-gold-gradient">Futuro Tecnológico</span>
-                    </h1>
-                    <p className={styles.subtitle}>
-                        Soluciones integrales de alta ingeniería para dar un salto tecnológico en tu empresa.
-                    </p>
-                    <div className={styles.ctaGroup}>
-                        <Link href="/servicios" className={styles.primaryBtn}>
-                            Descubrir Servicios
-                            <ArrowRight size={18} />
+            {/* 1. HERO SECTION */}
+            <section className={styles.heroSection}>
+                <div className={styles.heroImageWrapper}>
+                    <Image
+                        src="/images/imagenes cori inc/modelo hero.png"
+                        alt="Cori Inc Artificial Intelligence Model"
+                        fill
+                        quality={100}
+                        priority
+                        className={styles.heroImage}
+                    />
+                    <div className={styles.heroOverlay} />
+                </div>
+
+                <div className={styles.heroTextContainer}>
+                    <h1 className={styles.heroTitle}>CORI INC.</h1>
+                    <HeroSubtitle phrases={phrasesHero} />
+                </div>
+            </section>
+
+            {/* FRASES DE IDENTIDAD — Rotación automática */}
+            <RotatingPhrase phrases={phrasesIdentidad} />
+
+            {/* 2. THE SERVICES GRID */}
+            <section className={styles.gridSection}>
+                <div className={styles.sectionHeader}>
+                    <span className={styles.sectionPreTitle}>Nuestros Servicios</span>
+                    <h2 className={styles.sectionTitle}>
+                        Soluciones <span className={styles.textAccent}>Tecnológicas</span>
+                    </h2>
+                </div>
+                <div className={styles.gridContainer}>
+                    <div className={`${styles.gridItem} ${styles.itemIA}`}>
+                        <Link href="/servicios/software-ia" className={styles.gridLink}>
+                            <div className={styles.gridImageWrapper}>
+                                <Image src="/images/imagenes cori inc/tablet y manos.png" alt="Sistemas de Información & IA" fill className={styles.gridImage} />
+                                <div className={styles.gridOverlay} />
+                            </div>
+                            <div className={styles.gridTextContainer}>
+                                <h3 className={styles.gridTitle}>Sistemas de Información & IA.</h3>
+                                <p className={styles.gridSubtitle}>Inteligencia Sintética.</p>
+                            </div>
                         </Link>
-                        <Link href="/contacto" className={styles.secondaryBtn}>
-                            Contactar
+                    </div>
+
+                    <div className={`${styles.gridItem} ${styles.itemSeguridad}`}>
+                        <Link href="/servicios/seguridad" className={styles.gridLink}>
+                            <div className={styles.gridImageWrapper}>
+                                <Image src="/images/imagenes cori inc/camara negra.png" alt="Sistemas de Seguridad" fill className={styles.gridImage} />
+                                <div className={styles.gridOverlay} />
+                            </div>
+                            <div className={styles.gridTextContainer}>
+                                <h3 className={styles.gridTitle}>Seguridad.</h3>
+                                <p className={styles.gridSubtitle}>Vigilancia Estética.</p>
+                            </div>
+                        </Link>
+                    </div>
+
+                    <div className={`${styles.gridItem} ${styles.itemAuto}`}>
+                        <Link href="/servicios/automatizacion" className={styles.gridLink}>
+                            <div className={styles.gridImageWrapper}>
+                                <Image src="/images/imagenes cori inc/soldador color.png" alt="Sistemas de Automatización" fill className={styles.gridImage} />
+                                <div className={styles.gridOverlay} />
+                            </div>
+                            <div className={styles.gridTextContainer}>
+                                <h3 className={styles.gridTitle}>Automatización.</h3>
+                                <p className={styles.gridSubtitle}>Precisión en Movimiento.</p>
+                            </div>
+                        </Link>
+                    </div>
+
+                    <div className={`${styles.gridItem} ${styles.itemDomotica}`}>
+                        <Link href="/servicios/domotica" className={styles.gridLink}>
+                            <div className={styles.gridImageWrapper}>
+                                <Image src="/images/imagenes cori inc/domotica mano y panel.png" alt="Domotica IoT" fill className={styles.gridImage} />
+                                <div className={styles.gridOverlay} />
+                            </div>
+                            <div className={styles.gridTextContainer}>
+                                <h3 className={styles.gridTitle}>Domótica & IoT.</h3>
+                                <p className={styles.gridSubtitle}>Espacios Sensibles.</p>
+                            </div>
+                        </Link>
+                    </div>
+
+                    <div className={`${styles.gridItem} ${styles.itemConsultoria}`}>
+                        <Link href="/servicios/consultoria" className={styles.gridLink}>
+                            <div className={styles.gridImageWrapper}>
+                                <Image src="/images/imagenes cori inc/modelo mujer.png" alt="Consultoría Tecnológica" fill className={styles.gridImage} />
+                                <div className={styles.gridOverlay} />
+                            </div>
+                            <div className={styles.gridTextContainer}>
+                                <h3 className={styles.gridTitle}>Consultoría.</h3>
+                                <p className={styles.gridSubtitle}>Visión Estratégica.</p>
+                            </div>
                         </Link>
                     </div>
                 </div>
-
-                {/* Decorative Background Elements */}
-                <div className={styles.glowOrb1}></div>
-                <div className={styles.glowOrb2}></div>
             </section>
 
-            {/* Services Preview Section */}
-            <section className={styles.servicesPreview}>
-                <h2 className={styles.sectionTitle}>Nuestras Áreas de Ingeniería</h2>
 
-                <div className={styles.grid}>
-                    <Link href="/servicios/software" className={`glass-panel ${styles.card}`}>
-                        <div className={styles.cardHeader}>
-                            <Code2 className={styles.iconGold} size={32} />
-                            <h3>Desarrollo de Software</h3>
-                        </div>
-                        <p>Sistemas a medida, robustos y escalables para necesidades críticas.</p>
-                    </Link>
-
-                    <Link href="/servicios/ia" className={`glass-panel ${styles.card}`}>
-                        <div className={styles.cardHeader}>
-                            <Cpu className={styles.iconSilver} size={32} />
-                            <h3>Inteligencia Artificial</h3>
-                        </div>
-                        <p>Modelos predictivos y automatización cognitiva de procesos.</p>
-                    </Link>
-
-                    <Link href="/servicios/automatizacion" className={`glass-panel ${styles.card}`}>
-                        <div className={styles.cardHeader}>
-                            <Microchip className={styles.iconBronze} size={32} />
-                            <h3>Automatización</h3>
-                        </div>
-                        <p>Ingeniería de control avanzado para optimización industrial.</p>
-                    </Link>
-
-                    <Link href="/servicios/domotica" className={`glass-panel ${styles.card}`}>
-                        <div className={styles.cardHeader}>
-                            <SmartHome className={styles.iconGold} size={32} />
-                            <h3>Domótica e IoT</h3>
-                        </div>
-                        <p>Ecosistemas conectados para hogares e industrias inteligentes.</p>
-                    </Link>
-
-                    <Link href="/servicios/consultoria" className={`glass-panel ${styles.card}`}>
-                        <div className={styles.cardHeader}>
-                            <Lightbulb className={styles.iconSilver} size={32} />
-                            <h3>Consultoría Técnica</h3>
-                        </div>
-                        <p>Asesoramiento experto para transformar tu infraestructura.</p>
-                    </Link>
+            {/* 3. SOBRE NOSOTROS */}
+            <section className={styles.aboutSection}>
+                <div className={styles.aboutContainer}>
+                    <div className={styles.aboutTextContent}>
+                        <h2 className={styles.aboutTitle}>Sobre Nosotros</h2>
+                        <h3 className={styles.aboutHeadline}>
+                            Innovación en la intersección del código y la materia.
+                        </h3>
+                        <p className={styles.aboutDescription}>
+                            En Cori Inc., estructuramos el futuro. Diseñamos ecosistemas donde la robótica industrial,
+                            la inteligencia sintética y la domótica operan centralizadas y fluidas.
+                        </p>
+                        <p className={styles.aboutDescription}>
+                            Nuestra ingeniería no solo resuelve problemas operativos,
+                            sino que define la estética del rendimiento corporativo y la seguridad de misión crítica.
+                        </p>
+                    </div>
                 </div>
             </section>
+
+            {/* FRASES DE ESTILO E IMPACTO — Rotación automática */}
+            <RotatingPhrase phrases={phrasesImpacto} />
         </div>
     );
 }

@@ -1,221 +1,351 @@
 .container {
+    background-color: var(--bg-color);
     min-height: 100vh;
+    color: var(--text-primary);
+}
+
+/* =========================================
+   1. HERO SECTION PIXEL-PERFECT
+   ========================================= */
+.heroSection {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--hero-grey);
     display: flex;
     flex-direction: column;
-    position: relative;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.heroImageWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.heroImage {
+    object-fit: cover;
+    object-position: center;
+}
+
+.heroOverlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
     z-index: 1;
 }
 
-.hero {
-    min-height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.heroTextContainer {
     position: relative;
-    overflow: hidden;
-    padding: 2rem;
-}
-
-.heroContent {
+    z-index: 10;
     text-align: center;
-    z-index: 10;
-    max-width: 900px;
-    animation: fadeUp 1s ease-out forwards;
+    padding-bottom: 5rem;
 }
 
-.title {
-    font-size: clamp(3rem, 8vw, 5.5rem);
-    font-weight: 800;
-    line-height: 1.1;
-    letter-spacing: -0.04em;
-    margin-bottom: 2rem;
+.heroTitle {
+    color: #fff;
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 300; /* Ultra-light text as per mockup */
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
 }
 
-.title span {
-    display: block;
-}
-
-.subtitle {
-    font-size: clamp(1.1rem, 2vw, 1.4rem);
-    color: var(--text-secondary);
+.heroSubtitle {
+    color: #fff;
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
     font-weight: 300;
-    margin-bottom: 3.5rem;
-    max-width: 600px;
-    margin-inline: auto;
+    font-family: 'Playfair Display', serif;
+    font-style: italic; /* Matching the mockup style */
+    opacity: 0.9;
 }
 
-.ctaGroup {
+.heroSubtitleWrapper {
+    height: 1.5em;
     display: flex;
-    gap: 1.5rem;
+    align-items: center;
     justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
 }
 
-.primaryBtn {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: var(--gradient-gold);
-    color: #000;
-    padding: 1rem 2rem;
-    border-radius: 100px;
+
+/* =========================================
+   2. THE SERVICES GRID PIXEL-PERFECT
+   ========================================= */
+.gridSection {
+    background-color: #f7f7f7; /* Changed from pure white to a soft light grey */
+    padding: 8rem 5% 5rem 5%;
+}
+
+.sectionHeader {
+    max-width: 1400px;
+    margin: 0 auto 3rem auto;
+    text-align: center; /* Centered to fill the "empty" space better */
+}
+
+.sectionPreTitle {
+    display: block;
+    font-size: 0.875rem;
     font-weight: 600;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-}
-
-.primaryBtn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px var(--border-glow);
-}
-
-.secondaryBtn {
-    padding: 1rem 2rem;
-    border-radius: 100px;
-    font-weight: 500;
-    font-size: 1.1rem;
-    color: var(--text-primary);
-    border: 1px solid var(--border-light);
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-}
-
-.secondaryBtn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: var(--accent-silver);
-}
-
-/* Decoraciones y brillos de fondo del Hero */
-.glowOrb1 {
-    position: absolute;
-    top: -20%;
-    left: 10%;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
-    border-radius: 50%;
-    filter: blur(60px);
-    z-index: 1;
-    animation: float 20s infinite ease-in-out alternate;
-}
-
-.glowOrb2 {
-    position: absolute;
-    bottom: -10%;
-    right: -5%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(192, 192, 192, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
-    border-radius: 50%;
-    filter: blur(80px);
-    z-index: 1;
-    animation: float 25s infinite ease-in-out alternate-reverse;
-}
-
-/* Sección de Servicios / Preview */
-.servicesPreview {
-    padding: 8rem 5%;
-    position: relative;
-    z-index: 10;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
 }
 
 .sectionTitle {
-    font-size: clamp(2rem, 4vw, 3rem);
-    text-align: center;
-    margin-bottom: 5rem;
-    font-weight: 700;
-    color: var(--text-secondary);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300; /* Lighter weight for a more elegant, premium feel */
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
 }
 
-.grid {
+.textAccent {
+    font-weight: 600; /* Bolder to contrast with the light title */
+    background: linear-gradient(135deg, #666 0%, #000 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gridContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    /* Creating a 6-column grid to allow precise fractional sizing */
+    grid-template-columns: repeat(6, 1fr);
+    /* 3 rows of 300px each creates a dynamic 900px tall block */
+    grid-auto-rows: 300px;
+    gap: 1.5rem;
     max-width: 1400px;
     margin: 0 auto;
 }
 
-.card {
-    padding: 2.5rem;
+/* Base link styling to reset default behaviors */
+.gridLink {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.gridItem {
+    position: relative;
+    background-color: #000;
+    overflow: hidden;
+    /* Strictly NO border-radius as per the latest mockup */
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    text-decoration: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-    /* Efecto vidrio con luz superior */
+    justify-content: flex-end;
+    /* Transition for the 3D lift effect */
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    width: 100%;
+    height: 100%;
 }
 
-.card:hover {
-    transform: translateY(-8px) scale(1.02);
-    background: var(--bg-card-hover);
-    border-color: var(--accent-gold);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px var(--border-glow);
+/* Elevación 3D al hacer hover en toda la tarjeta */
+.gridItem:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 40px 60px -15px rgba(0, 0, 0, 0.4), 0 20px 30px -10px rgba(0, 0, 0, 0.2);
+    z-index: 10;
 }
 
-.cardHeader {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+/* 
+    Bento Box Mapping: 
+    Total setup is 6 columns wide, 3 rows high.
+*/
+
+.itemIA {
+    /* Huge main block: 4 cols wide, 2 rows tall */
+    grid-column: span 4;
+    grid-row: span 2;
 }
 
-.cardHeader h3 {
+.itemSeguridad {
+    /* Top right: 2 cols wide, 1 row tall */
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+.itemAuto {
+    /* Middle right: 2 cols wide, 1 row tall */
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+.itemDomotica {
+    /* Bottom left: 3 cols wide, 1 row tall */
+    grid-column: span 3;
+    grid-row: span 1;
+}
+
+.itemConsultoria {
+    /* Bottom right: 3 cols wide, 1 row tall */
+    grid-column: span 3;
+    grid-row: span 1;
+}
+
+.gridImageWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.gridImage {
+    object-fit: cover;
+    object-position: center;
+    /* Inicia desaturada y más oscura para el efecto Revelado de Contraste */
+    filter: grayscale(70%) brightness(0.7);
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Hover Effect: Zoom Interno + Revelado de Contraste */
+.gridItem:hover .gridImage {
+    transform: scale(1.05); /* Aplica el zoom del 5% */
+    filter: grayscale(0%) brightness(1.1); /* Recupera color vibrante y brillo extra */
+}
+
+/* Hard overlay for text readability */
+.gridOverlay {
+    position: absolute;
+    inset: 0;
+    /* Increased the overlay opacity from 0.85 to 0.95 and extended the height to 50% for better coverage over bright images like Domotica */
+    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0) 50%);
+    z-index: 1;
+}
+
+.gridTextContainer {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    color: #fff;
+}
+
+.gridTitle {
     font-size: 1.25rem;
-    font-weight: 600;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+    /* Added a text-shadow to ensure the text pops even when hovering over bright areas of the image */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+.gridSubtitle {
+    font-size: 1rem;
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(255,255,255,0.9); /* Brightened slightly */
+    text-shadow: 0 1px 3px rgba(0,0,0,0.9); /* Added shadow */
+}
+
+@media (max-width: 992px) {
+    .gridContainer {
+        display: flex; /* Revert to flexbox for easy flow on mobile/tablet */
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .itemIA {
+        min-height: 400px;
+    }
+
+    .itemDomotica, .itemAuto, .itemSeguridad, .itemConsultoria {
+        min-height: 350px;
+    }
+}
+
+/* =========================================
+   3. ABOUT US SECTION
+   ========================================= */
+.aboutSection {
+    background-color: #f5f5f5; /* Light grey block for contrast against white */
+    padding: 8rem 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.aboutContainer {
+    max-width: 1400px;
+    width: 100%;
+}
+
+.aboutTextContent {
+    max-width: 800px; /* Constrain width for a premium editorial reading line-length */
+    margin: 0 auto;
+}
+
+.aboutTitle {
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 2rem;
+    color: var(--text-muted);
+}
+
+.aboutHeadline {
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 800; /* Bold typography matching the structural aesthetic */
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 3rem;
     color: var(--text-primary);
 }
 
-.card p {
-    color: var(--text-muted);
-    font-size: 1rem;
+.aboutDescription {
+    font-size: 1.25rem;
+    font-weight: 400;
     line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
 }
 
-/* Iconos de las tarjetas */
-.iconGold {
-    color: var(--accent-gold);
+/* =========================================
+   4. ROTATING PHRASE SECTIONS
+   ========================================= */
+.phraseSection {
+    background-color: #f7f7f7;
+    padding: 4.5rem 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.iconSilver {
-    color: var(--accent-silver);
+.phraseWrapper {
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80px;
 }
 
-.iconBronze {
-    color: var(--accent-bronze);
+.phrase {
+    font-family: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
+    font-size: clamp(1.1rem, 2vw, 1.45rem);
+    font-weight: 400;
+    font-style: italic;
+    text-align: center;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+    color: var(--text-secondary);
 }
 
-/* Animaciones Keyframes */
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes float {
-    0% {
-        transform: translate(0, 0);
-    }
-
-    100% {
-        transform: translate(50px, 50px);
-    }
-}
-
-/* Queries Responsivas */
 @media (max-width: 768px) {
-    .hero {
-        min-height: 80vh;
+    .phraseSection {
+        padding: 3rem 6%;
     }
-
-    .grid {
-        grid-template-columns: 1fr;
+    .phraseWrapper {
+        min-height: 70px;
+    }
+    .phrase {
+        font-size: clamp(1rem, 4vw, 1.2rem);
     }
 }
+

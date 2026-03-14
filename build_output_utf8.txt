@@ -1,0 +1,55 @@
+﻿
+> cori@1.0.0 build
+> next build
+
+   Ôû▓ Next.js 15.1.0
+
+   Creating an optimized production build ...
+node.exe : Failed to 
+compile.
+En línea: 1 Carácter: 
+1
++ & "C:\Program Files\
+nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo 
+...
++ ~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~
+    + CategoryInfo    
+          : NotSpeci  
+  fied: (Failed to    
+ compile.:String)     
+[], RemoteExcepti    
+on
+    + FullyQualifiedE 
+   rrorId : NativeCo  
+  mmandError
+ 
+
+./src/app/servicios/se
+guridad/page.tsx
+Module not found: 
+Can't resolve '../../S
+ervice.module.css'
+
+https://nextjs.org/doc
+s/messages/module-not-
+found
+
+./src/app/servicios/so
+ftware-ia/page.tsx
+Module not found: 
+Can't resolve '../../S
+ervice.module.css'
+
+https://nextjs.org/doc
+s/messages/module-not-
+found
+
+
+> Build failed 
+because of webpack 
+errors

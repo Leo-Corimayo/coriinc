@@ -1,0 +1,447 @@
+.container {
+    background-color: var(--bg-color);
+    min-height: 100vh;
+    color: var(--text-primary);
+}
+
+/* =========================================
+   1. HERO
+   ========================================= */
+.hero {
+    background-color: #0a0a0a;
+    color: #fff;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10rem 5% 6rem 5%;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    left: -10%;
+    width: 120%;
+    height: 160%;
+    background: radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.heroLabel {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 2rem;
+}
+
+.heroTitle {
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 200;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+}
+
+.heroTitle em,
+.heroTitle i {
+    font-weight: 500;
+    font-style: normal;
+}
+
+.heroSub {
+    font-size: clamp(1rem, 1.5vw, 1.3rem);
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* =========================================
+   2. MANIFESTO
+   ========================================= */
+.manifesto {
+    background-color: #f7f7f7;
+    padding: 8rem 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.manifestoContent {
+    max-width: 850px;
+    width: 100%;
+}
+
+.manifestoLabel {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.manifestoTitle {
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: 3rem;
+}
+
+.manifestoTitle em {
+    font-weight: 700;
+    font-style: normal;
+}
+
+.manifestoText {
+    font-size: 1.15rem;
+    font-weight: 400;
+    line-height: 1.75;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+/* =========================================
+   3. FOUNDER
+   ========================================= */
+.founder {
+    background-color: #0a0a0a;
+    color: #fff;
+    padding: 8rem 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.founderGrid {
+    max-width: 1200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+.founderImageCol {
+    position: relative;
+}
+
+.founderImageWrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 3;
+    overflow: hidden;
+}
+
+.founderImage {
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(30%) contrast(1.1);
+    transition: filter 0.6s ease;
+}
+
+.founderImageWrapper:hover .founderImage {
+    filter: grayscale(0%) contrast(1.05);
+}
+
+.founderTextCol {
+    display: flex;
+    flex-direction: column;
+}
+
+.founderLabel {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.45);
+    margin-bottom: 1.5rem;
+}
+
+.founderName {
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+}
+
+.founderRole {
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.55);
+    letter-spacing: 0.05em;
+}
+
+.founderDivider {
+    width: 60px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 2rem 0;
+}
+
+.founderBio {
+    font-size: 1.05rem;
+    font-weight: 400;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1.25rem;
+}
+
+.founderQuote {
+    font-size: 1.3rem;
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.85);
+    margin-top: 1rem;
+    padding-left: 1.5rem;
+    border-left: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* =========================================
+   4. DUALIDAD TÉCNICA
+   ========================================= */
+.dualidad {
+    background-color: #f7f7f7;
+    padding: 8rem 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dualidadHeader {
+    text-align: center;
+    margin-bottom: 4rem;
+    max-width: 800px;
+}
+
+.dualidadLabel {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.dualidadTitle {
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+}
+
+.dualidadGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.dualidadCard {
+    background-color: #fff;
+    padding: 3rem 2.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dualidadCard:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.15);
+}
+
+.dualidadIcon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
+.dualidadCardTitle {
+    font-size: 1.15rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.dualidadCardDesc {
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+/* =========================================
+   5. VALORES
+   ========================================= */
+.valores {
+    background-color: #0a0a0a;
+    color: #fff;
+    padding: 8rem 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.valoresHeader {
+    text-align: center;
+    margin-bottom: 4rem;
+    max-width: 800px;
+}
+
+.valoresLabel {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.45);
+    margin-bottom: 1.5rem;
+}
+
+.valoresTitle {
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 200;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+}
+
+.valoresGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.valorCard {
+    padding: 2.5rem 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: border-color 0.4s ease, background-color 0.4s ease;
+}
+
+.valorCard:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.valorNumber {
+    display: block;
+    font-size: 3rem;
+    font-weight: 100;
+    color: rgba(255, 255, 255, 0.15);
+    margin-bottom: 1.5rem;
+    line-height: 1;
+}
+
+.valorTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.75rem;
+}
+
+.valorPhrase {
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* =========================================
+   6. CTA
+   ========================================= */
+.cta {
+    background-color: #f7f7f7;
+    padding: 8rem 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ctaContent {
+    text-align: center;
+    max-width: 800px;
+}
+
+.ctaTitle {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+}
+
+.ctaSub {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+}
+
+.ctaButton {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background-color: #0a0a0a;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.ctaButton:hover {
+    background-color: #222;
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 992px) {
+    .founderGrid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .founderImageWrapper {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .dualidadGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .valoresGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .hero {
+        min-height: 60vh;
+        padding: 8rem 6% 4rem 6%;
+    }
+
+    .valoresGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .founderName {
+        font-size: 2rem;
+    }
+}

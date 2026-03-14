@@ -1,11 +1,20 @@
 {
   "dependencies": {
-    "create-next-app": "^15.1.0",
-    "framer-motion": "^12.34.3",
+    "clsx": "^2.1.1",
+    "create-next-app": "15.1.0",
+    "embla-carousel-auto-scroll": "^8.6.0",
+    "embla-carousel-autoplay": "^8.6.0",
+    "embla-carousel-react": "^8.6.0",
+    "framer-motion": "^12.35.2",
     "lucide-react": "^0.575.0",
-    "next": "^15.1.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "next": "15.1.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-tsparticles": "^2.12.2",
+    "tailwind-merge": "^3.5.0",
+    "tsparticles": "^3.9.1",
+    "tsparticles-engine": "^2.12.0",
+    "tsparticles-slim": "^2.12.0"
   },
   "name": "cori",
   "version": "1.0.0",
@@ -28,7 +37,7 @@
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "eslint": "^8.57.1",
-    "eslint-config-next": "^15.1.0",
+    "eslint-config-next": "15.1.0",
     "eslint-plugin-next-on-pages": "^1.13.16",
     "typescript": "^5.9.3"
   }

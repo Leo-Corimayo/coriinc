@@ -1,7 +1,8 @@
 .container {
+    background-color: #0a0a0a;
+    color: #ffffff;
     min-height: 100vh;
     padding-top: 100px;
-    /* Offset para Navbar fixo */
     display: flex;
     flex-direction: column;
 }
@@ -39,7 +40,7 @@
 }
 
 .backButton:hover {
-    color: var(--text-primary);
+    color: #ffffff;
     transform: translateX(-5px);
 }
 
@@ -62,7 +63,7 @@
 
 .subtitle {
     font-size: clamp(1.1rem, 2vw, 1.3rem);
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.7);
     font-weight: 300;
     line-height: 1.6;
 }
@@ -92,17 +93,18 @@
 
 .featureCard:hover {
     transform: translateY(-5px);
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .featureCard h3 {
     font-size: 1.4rem;
     font-weight: 600;
-    color: var(--text-primary);
+    color: #ffffff;
 }
 
 .featureCard p {
-    color: var(--text-muted);
+    color: rgba(255, 255, 255, 0.6);
     line-height: 1.6;
     font-size: 1.05rem;
 }
@@ -113,8 +115,9 @@
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
-    background: rgba(10, 10, 10, 0.5);
-    border: 1px solid var(--border-light);
+    background: rgba(15, 15, 15, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: var(--radius-lg);
     padding: 4rem;
     position: relative;
@@ -142,7 +145,7 @@
 }
 
 .infoText p {
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.7);
     font-size: 1.1rem;
     line-height: 1.7;
 }
@@ -150,13 +153,16 @@
 .ctaButton {
     margin-top: 1rem;
     display: inline-block;
-    background: var(--text-primary);
+    background: var(--gradient-gold);
     color: #000;
-    padding: 1rem 2rem;
+    padding: 1rem 2.5rem;
     border-radius: 100px;
-    font-weight: 600;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     align-self: flex-start;
     transition: all 0.3s ease;
+    border: none;
 }
 
 .ctaButton:hover {
