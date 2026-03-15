@@ -56,10 +56,7 @@ export async function POST(req: Request) {
             const errorData = await res.json();
             console.error("Resend error:", errorData);
             return NextResponse.json(
-                { 
-                    error: "Error de Resend", 
-                    details: errorData 
-                }, 
+                { error: "Error de Resend" }, 
                 { status: res.status }
             );
         }
@@ -68,7 +65,7 @@ export async function POST(req: Request) {
     } catch (error) {
         console.error("Error enviando correo:", error);
         return NextResponse.json(
-            { error: "Error interno del servidor", details: error instanceof Error ? error.message : String(error) },
+            { error: "Error interno del servidor" },
             { status: 500 }
         );
     }
