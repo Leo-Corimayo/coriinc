@@ -2,13 +2,15 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, Mail, MapPin, Phone, Instagram, Linkedin, Facebook, Loader2 } from "lucide-react";
+import Image from "next/image";
+import { ArrowLeft, Mail, MapPin, Phone, Instagram, Linkedin, Facebook, Loader2, Sparkles } from "lucide-react";
 import styles from "./Contact.module.css";
 
 export default function ContactPage() {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
+        company: "",
         subject: "Consulta General",
         message: ""
     });
@@ -34,7 +36,7 @@ export default function ContactPage() {
 
             if (response.ok) {
                 setSubmitStatus("success");
-                setFormData({ name: "", email: "", subject: "Consulta General", message: "" });
+                setFormData({ name: "", email: "", company: "", subject: "Consulta General", message: "" });
             } else {
                 setSubmitStatus("error");
             }
@@ -53,7 +55,7 @@ export default function ContactPage() {
                 </Link>
 
                 <div className={styles.mainGrid}>
-                    {/* Left Column: Title + Info Card */}
+                    {/* Left Column: Title + Info Card + Persuasive */}
                     <div className={styles.leftCol}>
                         <h1 className={styles.mainTitle}>
                             Hablemos sobre tu<br />próximo proyecto
@@ -61,36 +63,34 @@ export default function ContactPage() {
 
                         <div className={styles.infoCard}>
                             <div className={styles.infoItem}>
+                                <MapPin size={24} className={styles.iconOutline} />
                                 <div className={styles.infoText}>
-                                    <span className={styles.infoLabel}><MapPin size={16} className={styles.iconGold} /> Nuestras Oficinas:</span>
+                                    <span className={styles.infoLabel}>Nuestras Oficinas</span>
                                     <p>La Rioja, Argentina</p>
                                 </div>
-                                <MapPin size={24} className={styles.iconOutline} />
                             </div>
 
                             <div className={styles.infoItem}>
+                                <Mail size={24} className={styles.iconOutline} />
                                 <div className={styles.infoText}>
-                                    <span className={styles.infoLabel}>Correo Electrónico:</span>
+                                    <span className={styles.infoLabel}>Correo Electrónico</span>
                                     <div className={styles.emailList}>
                                         <a href="mailto:leandro@coriinc.com">leandro@coriinc.com</a>
                                         <a href="mailto:lcorimayo@coriinc.com">lcorimayo@coriinc.com</a>
                                     </div>
                                 </div>
-                                <Mail size={24} className={styles.iconOutline} />
                             </div>
 
                             <div className={styles.infoItem}>
+                                <Phone size={24} className={styles.iconOutline} />
                                 <div className={styles.infoText}>
-                                    <span className={styles.infoLabel}>Teléfono:</span>
+                                    <span className={styles.infoLabel}>Teléfono</span>
                                     <a href="tel:+5493874735161">+54 9 387 473-5161</a>
                                 </div>
-                                <Phone size={24} className={styles.iconOutline} />
                             </div>
 
-
-
                             <div className={styles.socialSection}>
-                                <span className={styles.infoLabel}>Síguenos:</span>
+                                <span className={styles.infoLabel}>Síguenos</span>
                                 <div className={styles.socialIcons}>
                                     <Instagram size={24} />
                                     <Linkedin size={24} />
@@ -98,6 +98,22 @@ export default function ContactPage() {
                                     <Facebook size={24} />
                                 </div>
                             </div>
+                        </div>
+
+                        {/* Persuasive Section */}
+                        <div className={styles.persuasiveSection}>
+                            <div className={styles.persuasiveImageWrapper}>
+                                <Image 
+                                    src="/images/contacto-premium.png" 
+                                    alt="Cori Inc Technology" 
+                                    fill 
+                                    style={{ objectFit: 'cover' }}
+                                />
+                            </div>
+                            <p className={styles.persuasiveText}>
+                                <Sparkles size={18} style={{ color: '#b8860b', marginRight: '8px' }} />
+                                Transformamos tus ideas en soluciones de alta ingeniería. Hablemos sobre cómo llevar tu visión al siguiente nivel.
+                            </p>
                         </div>
                     </div>
 
@@ -113,6 +129,7 @@ export default function ContactPage() {
                                         name="name"
                                         value={formData.name}
                                         onChange={handleChange}
+                                        placeholder="Ej: Juan Pérez"
                                         required
                                     />
                                 </div>
@@ -125,7 +142,20 @@ export default function ContactPage() {
                                         name="email"
                                         value={formData.email}
                                         onChange={handleChange}
+                                        placeholder="juan@ejemplo.com"
                                         required
+                                    />
+                                </div>
+
+                                <div className={styles.inputGroup}>
+                                    <label htmlFor="company">Empresa (Opcional)</label>
+                                    <input
+                                        type="text"
+                                        id="company"
+                                        name="company"
+                                        value={formData.company}
+                                        onChange={handleChange}
+                                        placeholder="Nombre de tu organización"
                                     />
                                 </div>
 
@@ -139,8 +169,11 @@ export default function ContactPage() {
                                         className={styles.select}
                                     >
                                         <option value="Consulta General">Consulta General</option>
+                                        <option value="Software & IA">Software & IA</option>
+                                        <option value="Domótica & Automatización">Domótica & Automatización</option>
+                                        <option value="Seguridad Tecnológica">Seguridad Tecnológica</option>
                                         <option value="Cotización de Proyecto">Cotización de Proyecto</option>
-                                        <option value="Soporte">Soporte</option>
+                                        <option value="Otro">Otro (Especificar en mensaje)</option>
                                     </select>
                                 </div>
 
@@ -153,6 +186,7 @@ export default function ContactPage() {
                                         onChange={handleChange}
                                         required
                                         rows={4}
+                                        placeholder="Cuéntanos más sobre tu requerimiento..."
                                     />
                                 </div>
 
