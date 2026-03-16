@@ -1,12 +1,13 @@
 .navbar {
-    position: absolute; /* No sticky, just floats at top */
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
     z-index: 100;
-    padding: 2rem 0;
-    background: transparent; /* Or #FFF if it should block the image, mockups seem to blend */
+    padding: 1.5rem 0;
+    background: transparent;
     border-bottom: none;
+    transition: all 0.3s ease;
 }
 
 .navContainer {
@@ -21,31 +22,37 @@
 .brandName {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    font-size: 1.5rem;
-    font-weight: 400; /* Regular weight for CORI INC. */
+    gap: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 500;
     color: var(--text-primary);
     text-decoration: none;
-    letter-spacing: 0;
+    letter-spacing: 0.05em;
+    z-index: 110;
+}
+
+.brandText {
+    white-space: nowrap;
 }
 
 .logo {
     width: auto;
-    height: 32px;
+    height: 28px;
     object-fit: contain;
 }
 
 /* Desktop Menu */
 .desktopNav {
     display: flex;
-    gap: 3rem;
+    gap: 2.5rem;
 }
 
 .navLink {
-    font-size: 1rem;
-    font-weight: 400; /* Regular weight */
+    font-size: 0.95rem;
+    font-weight: 400;
     color: var(--text-primary);
     transition: color 0.3s ease;
+    text-decoration: none;
 }
 
 .navLink:hover {
@@ -60,69 +67,39 @@
     color: var(--text-primary);
     cursor: pointer;
     padding: 0.5rem;
-    z-index: 110;
+    z-index: 120;
+    transition: transform 0.3s ease;
 }
 
-/* Mobile Menu */
+/* Mobile Menu Overlay */
 .mobileMenu {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.98);
-    backdrop-filter: blur(20px);
+    background: #ffffff;
     z-index: 100;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-20px);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.mobileMenu.open {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.mobileMenu a,
-.mobileCategory {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #ffffff; /* Always white on dark mobile menu overlay */
-    text-decoration: none;
-}
-
-.mobileCategory {
-    color: var(--text-secondary);
-    font-size: 1.2rem;
-    margin-bottom: -1rem;
-}
-
-.mobileSublinks {
+.mobileNavLinks {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 2.5rem;
 }
 
-.mobileSublinks a {
-    font-size: 1.1rem;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.7); /* Lighter white for sublinks */
-}
-
-.mobileCta {
-    margin-top: 1rem;
-    background: var(--gradient-bronze);
-    color: #000 !important;
-    padding: 0.75rem 2rem;
-    border-radius: 100px;
+.mobileNavLink {
+    font-size: 2rem;
+    font-weight: 300;
+    color: #000;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
 }
 
 /* Light theme for dark backgrounds (like /nosotros) */
@@ -139,3 +116,31 @@
 .light .navLink:hover {
     color: rgba(255, 255, 255, 0.7);
 }
+
+/* =========================================
+   RESPONSIVE QUERIES
+   ========================================= */
+
+@media (max-width: 900px) {
+    .desktopNav {
+        display: none;
+    }
+
+    .mobileMenuBtn {
+        display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    .brandName {
+        font-size: 1.1rem;
+    }
+    
+    .logo {
+        height: 24px;
+    }
+
+    .navbar {
+        padding: 1rem 0;
+    }
+}

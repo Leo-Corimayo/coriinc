@@ -252,7 +252,7 @@
     text-shadow: 0 1px 3px rgba(0,0,0,0.9); /* Added shadow */
 }
 
-@media (max-width: 992px) {
+@media (max-width: 900px) {
     .gridContainer {
         display: flex; /* Revert to flexbox for easy flow on mobile/tablet */
         flex-direction: column;
@@ -265,6 +265,60 @@
 
     .itemDomotica, .itemAuto, .itemSeguridad, .itemConsultoria {
         min-height: 350px;
+    }
+
+    .gridSection {
+        padding: 5rem 6%;
+    }
+
+    .sectionTitle {
+        font-size: 2.5rem;
+    }
+
+    .aboutSection {
+        padding: 5rem 6%;
+    }
+
+    .aboutHeadline {
+        font-size: 2.25rem;
+    }
+
+    .heroTextContainer {
+        padding-bottom: 3rem;
+        width: 100%;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
+
+@media (max-width: 600px) {
+    .heroTitle {
+        font-size: 2.5rem;
+    }
+
+    .heroSubtitle {
+        font-size: 1rem;
+        padding: 0 5%;
+    }
+
+    .heroSubtitleWrapper {
+        height: 4em; /* Allow multi-line on mobile */
+    }
+
+    .heroLogo {
+        height: 60px;
+    }
+
+    .gridTitle {
+        font-size: 1.15rem;
+    }
+
+    .aboutHeadline {
+        font-size: 1.85rem;
+    }
+
+    .aboutDescription {
+        font-size: 1.1rem;
     }
 }
 

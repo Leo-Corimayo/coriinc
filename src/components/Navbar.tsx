@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
@@ -31,7 +32,7 @@ export default function Navbar() {
                         height={30} 
                         className={styles.logo}
                     />
-                    CORI INC.
+                    <span className={styles.brandText}>CORI INC.</span>
                 </Link>
 
                 {/* Desktop Navigation */}
@@ -53,26 +54,34 @@ export default function Navbar() {
                     onClick={toggleMobileMenu}
                     aria-label="Toggle menu"
                 >
-                    {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                    {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
                 </button>
             </div>
 
             {/* Mobile Menu Overlay */}
-            {isMobileMenuOpen && (
-                <div className={styles.mobileMenu}>
-                    <div className={styles.mobileNavLinks}>
-                        <Link href="/nosotros" className={styles.mobileNavLink} onClick={toggleMobileMenu}>
-                            Nosotros
-                        </Link>
-                        <Link href="/#servicios" className={styles.mobileNavLink} onClick={toggleMobileMenu}>
-                            Servicios
-                        </Link>
-                        <Link href="/contacto" className={styles.mobileNavLink} onClick={toggleMobileMenu}>
-                            Contacto
-                        </Link>
-                    </div>
-                </div>
-            )}
+            <AnimatePresence>
+                {isMobileMenuOpen && (
+                    <motion.div 
+                        className={styles.mobileMenu}
+                        initial={{ opacity: 0, x: '100%' }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: '100%' }}
+                        transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+                    >
+                        <div className={styles.mobileNavLinks}>
+                            <Link href="/nosotros" className={styles.mobileNavLink} onClick={toggleMobileMenu}>
+                                Nosotros
+                            </Link>
+                            <Link href="/#servicios" className={styles.mobileNavLink} onClick={toggleMobileMenu}>
+                                Servicios
+                            </Link>
+                            <Link href="/contacto" className={styles.mobileNavLink} onClick={toggleMobileMenu}>
+                                Contacto
+                            </Link>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </nav>
     );
 }

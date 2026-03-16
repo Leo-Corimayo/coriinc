@@ -44,6 +44,48 @@
         grid-template-columns: 1fr;
         gap: 4rem;
     }
+
+    .rightCol {
+        order: -1; /* Image first on tablet/mobile */
+    }
+
+    .imageContainer {
+        height: 400px;
+        aspect-ratio: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding-top: 100px;
+    }
+
+    .mainTitle {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .form, .infoSection {
+        padding: 1.5rem;
+        border-radius: 16px;
+    }
+
+    .imageContainer {
+        height: 300px;
+        border-radius: 24px;
+    }
+
+    .contentWrapper {
+        padding: 1.5rem 5%;
+    }
+
+    .submitBtn {
+        width: 100%;
+        text-align: center;
+    }
 }
 
 .leftCol {
