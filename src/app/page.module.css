@@ -49,6 +49,14 @@
     padding-bottom: 5rem;
 }
 
+.heroLogo {
+    width: auto;
+    height: clamp(60px, 8vw, 100px);
+    margin: 0 auto 1.5rem auto;
+    object-fit: contain;
+    filter: invert(1); /* Logo is black, hero is dark */
+}
+
 .heroTitle {
     color: #fff;
     font-size: clamp(3rem, 6vw, 5rem);

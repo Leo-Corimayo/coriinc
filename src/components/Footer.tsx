@@ -1,5 +1,6 @@
 import styles from './Footer.module.css';
 import { Sparkles } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Footer() {
     return (
@@ -8,6 +9,13 @@ export default function Footer() {
                 
                 {/* Huge Watermark Background Text */}
                 <div className={styles.watermarkContainer}>
+                    <Image 
+                        src="/images/logofinal.png" 
+                        alt="" 
+                        width={300} 
+                        height={300} 
+                        className={styles.watermarkLogo}
+                    />
                     <span className={styles.watermarkText}>CORI INC.</span>
                 </div>
 

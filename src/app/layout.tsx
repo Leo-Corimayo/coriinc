@@ -8,8 +8,11 @@ export const metadata: Metadata = {
     description: "Brindando soluciones tecnológicas integrales de alta ingeniería. Expertos en IA, Software, Automatización y Domótica.",
     keywords: "tecnología, software, IA, inteligencia artificial, automatización, domótica, IoT, consultoría, Argentina",
     icons: {
-        icon: "/assets/logo.png",
-        apple: "/assets/logo.png"
+        icon: [
+            { url: "/images/logofinal.png", media: "(prefers-color-scheme: light)" },
+            { url: "/images/logofinal_white.png", media: "(prefers-color-scheme: dark)" }
+        ],
+        apple: "/images/logofinal.png"
     }
 };
 

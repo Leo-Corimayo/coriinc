@@ -19,11 +19,20 @@
 }
 
 .brandName {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
     font-size: 1.5rem;
     font-weight: 400; /* Regular weight for CORI INC. */
     color: var(--text-primary);
     text-decoration: none;
     letter-spacing: 0;
+}
+
+.logo {
+    width: auto;
+    height: 32px;
+    object-fit: contain;
 }
 
 /* Desktop Menu */
@@ -121,6 +130,10 @@
 .light .navLink,
 .light .mobileMenuBtn {
     color: #ffffff;
+}
+
+.light .logo {
+    filter: invert(1);
 }
 
 .light .navLink:hover {

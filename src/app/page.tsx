@@ -116,6 +116,14 @@ export default function Home() {
                 </div>
 
                 <div className={styles.heroTextContainer}>
+                    <Image 
+                        src="/images/logofinal.png" 
+                        alt="" 
+                        width={80} 
+                        height={80} 
+                        className={styles.heroLogo}
+                        priority
+                    />
                     <h1 className={styles.heroTitle}>CORI INC.</h1>
                     <HeroSubtitle phrases={phrasesHero} />
                 </div>
@@ -125,7 +133,7 @@ export default function Home() {
             <RotatingPhrase phrases={phrasesIdentidad} />
 
             {/* 2. THE SERVICES GRID */}
-            <section className={styles.gridSection}>
+            <section id="servicios" className={styles.gridSection}>
                 <div className={styles.sectionHeader}>
                     <span className={styles.sectionPreTitle}>Nuestros Servicios</span>
                     <h2 className={styles.sectionTitle}>
